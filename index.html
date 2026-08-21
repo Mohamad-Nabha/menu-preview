@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNTASTIC - Kids Playground & Cafe | Ksara</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --green: #4CAF50;
+            --blue: #2196F3;
+            --mauve: #9C27B0;
+            --light-red: #FF5252;
+            --orange: #FF9800;
+            --yellow: #FFC107;
+            --pink: #E91E63;
+            --purple: #7B1FA2;
+            --dark-bg: #0f0f17;
+            --card-bg: #1a1a28;
+            --card-hover: #232336;
+            --text-light: #f1f5f9;
+            --text-muted: #94a3b8;
+            --font-heading: 'Fredoka', cursive, sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-body);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            background-image: radial-gradient(circle at 50% 0%, rgba(123, 31, 162, 0.15), transparent 70%),
+                              radial-gradient(circle at 0% 100%, rgba(33, 150, 243, 0.1), transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* --- STICKY NAVIGATION BAR --- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 23, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            gap: 2px;
+            text-decoration: none;
+        }
+
+        .mini-box {
+            width: 22px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 900;
+            font-family: var(--font-heading);
+            color: #ffffff;
+            border-radius: 4px;
+        }
+
+        .nav-right-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-lang {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-lang:hover {
+            background: var(--pink);
+            border-color: var(--pink);
+        }
+
+        .btn-call {
+            background: linear-gradient(135deg, var(--green), #2E7D32);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .btn-call:hover { transform: scale(1.05); }
+
+        main.container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 15px 80px 15px;
+        }
+
+        /* --- LOGO HEADER --- */
+        header.header {
+            text-align: center;
+            padding: 40px 10px 20px 10px;
+        }
+
+        .logo-container {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .logo-box {
+            width: 48px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 900;
+            font-family: var(--font-heading);
+            color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
+
+        .bg-green { background-color: var(--green); }
+        .bg-blue { background-color: var(--blue); }
+        .bg-mauve { background-color: var(--mauve); }
+        .bg-light-red { background-color: var(--light-red); }
+        .bg-orange { background-color: var(--orange); }
+        .bg-yellow { background-color: var(--yellow); color: #111 !important; }
+
+        .subtitle {
+            font-size: 18px;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            color: #ffffff;
+            background: linear-gradient(90deg, var(--pink), var(--purple));
+            display: inline-block;
+            padding: 6px 22px;
+            border-radius: 25px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);
+            text-transform: uppercase;
+        }
+
+        /* --- INFO BANNER GRID --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0 40px 0;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .info-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .info-card h4 {
+            font-size: 16px;
+            font-family: var(--font-heading);
+            color: #ffffff;
+        }
+
+        /* --- CATEGORIES NAVIGATION --- */
+        .category-nav-wrapper { margin-bottom: 40px; }
+
+        .section-header-title {
+            font-size: 22px;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-item {
+            background-color: var(--card-bg);
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 10px 6px;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.25s ease;
+            min-height: 60px;
+        }
+
+        .nav-item i { font-size: 16px; color: var(--pink); }
+
+        .nav-item:hover {
+            background-color: var(--pink);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(233, 30, 99, 0.4);
+        }
+
+        .nav-item:hover i { color: white; }
+
+        /* --- REVIEWS SLIDER --- */
+        .reviews-section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .review-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .review-box {
+            background: var(--card-bg);
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 4px solid var(--yellow);
+        }
+
+        .review-stars { color: var(--yellow); font-size: 12px; margin-bottom: 6px; }
+        .review-text { font-size: 12.5px; color: #d1d5db; font-style: italic; }
+        .review-author { font-size: 11px; color: var(--text-muted); margin-top: 8px; font-weight: 700; }
+
+        /* --- ACCORDION MENU SECTIONS --- */
+        .menu-section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            scroll-margin-top: 80px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.2s;
+        }
+
+        .section-header:hover { background: rgba(255, 255, 255, 0.02); }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0;
+        }
+
+        .accordion-icon {
+            font-size: 16px;
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-section.active .accordion-icon { transform: rotate(180deg); }
+
+        .section-content {
+            max-height: 2000px;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+            padding: 0 25px 25px 25px;
+        }
+
+        .menu-section:not(.active) .section-content {
+            max-height: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .title-pink { color: var(--pink); }
+        .title-green { color: var(--green); }
+        .title-blue { color: var(--blue); }
+        .title-orange { color: var(--orange); }
+        .title-purple { color: #b388ff; }
+        .title-yellow { color: var(--yellow); }
+        .title-white { color: #ffffff; }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            padding-top: 10px;
+        }
+
+        .menu-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, background 0.2s, border-color 0.2s;
+        }
+
+        .menu-item:hover {
+            background: var(--card-hover);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .item-name { font-size: 15px; font-weight: 700; color: #ffffff; }
+
+        .item-price {
+            font-size: 13px;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            padding: 3px 10px;
+            border-radius: 12px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .item-explanation { font-size: 11.5px; color: var(--text-muted); margin-top: 6px; line-height: 1.4; }
+        .item-addition { font-size: 11.5px; color: var(--orange); margin-top: 4px; font-weight: 600; }
+        .platters-addition { color: #b388ff !important; }
+        .item-extra { font-size: 12px; font-weight: 700; color: var(--pink); margin-top: 6px; }
+
+        .kids-meal-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .kids-meal-img {
+            width: 85px;
+            height: 85px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid var(--purple);
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        .kids-meal-img:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+        .meal-red { color: #ff5252; }
+        .meal-yellow { color: #ffeb3b; }
+        .meal-blue { color: #448aff; }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-to-top:hover { transform: scale(1.15) rotate(10deg); }
+
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.show { display: flex; opacity: 1; }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-modal.show .lightbox-content { transform: scale(1); }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .lightbox-close:hover { color: var(--pink); }
+
+        footer {
+            text-align: center;
+            padding: 30px 10px;
+            color: var(--text-muted);
+            font-size: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .logo-box { width: 36px; height: 44px; font-size: 22px; }
+            .subtitle { font-size: 14px; }
+            .nav-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+            .menu-grid { grid-template-columns: 1fr; }
+            .section-header { padding: 16px 20px; }
+            .section-content { padding: 0 20px 20px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- STICKY TOP NAVBAR -->
+<nav class="navbar" aria-label="Main Navigation">
+    <a href="#top" class="nav-logo" aria-label="FUNTASTIC Home">
+        <div class="mini-box bg-green">F</div>
+        <div class="mini-box bg-blue">U</div>
+        <div class="mini-box bg-mauve">N</div>
+        <div class="mini-box bg-light-red">T</div>
+        <div class="mini-box bg-orange">A</div>
+        <div class="mini-box bg-yellow">S</div>
+        <div class="mini-box bg-blue">T</div>
+        <div class="mini-box bg-mauve">I</div>
+        <div class="mini-box bg-light-red">C</div>
+    </a>
+    <div class="nav-right-actions">
+        <!-- LANGUAGE SWITCHER LINK -->
+        <a href="index-ar.html" class="btn-lang"><i class="fas fa-globe"></i> العربية</a>
+        <a href="tel:81599577" class="btn-call"><i class="fas fa-phone"></i> 81 599 577</a>
+    </div>
+</nav>
+
+<main class="container" id="top">
+
+    <!-- HEADER LOGO -->
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo-box bg-green">F</div>
+            <div class="logo-box bg-blue">U</div>
+            <div class="logo-box bg-mauve">N</div>
+            <div class="logo-box bg-light-red">T</div>
+            <div class="logo-box bg-orange">A</div>
+            <div class="logo-box bg-yellow">S</div>
+            <div class="logo-box bg-blue">T</div>
+            <div class="logo-box bg-mauve">I</div>
+            <div class="logo-box bg-light-red">C</div>
+        </div>
+        <br>
+        <div class="subtitle">Kids Playground & Family Cafe</div>
+    </header>
+
+    <!-- VENUE QUICK INFO CARDS -->
+    <section class="info-grid" id="about" aria-label="Venue Overview">
+        <div class="info-card">
+            <div class="info-icon" style="background: rgba(76, 175, 80, 0.15); color: var(--green);">
+                <i class="fas fa-child"></i>
+            </div>
+            <div>
+                <h4>Indoor & Outdoor Play</h4>
+                <p>Large indoor arena & bigger outdoor zone for ages 1+</p>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon" style="background: rgba(255, 152, 0, 0.15); color: var(--orange);">
+                <i class="fas fa-birthday-cake"></i>
+            </div>
+            <div>
+                <h4>Birthday Events</h4>
+                <p>Full event planning & hosted birthday celebrations</p>
+            </div>
+        </div>
+
+        <div class="info-card" id="location">
+            <div class="info-icon" style="background: rgba(33, 150, 243, 0.15); color: var(--blue);">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+                <h4>Location & Hours</h4>
+                <p>Ksara (Plus Code: RVGX+Q5) • Open Tuesday through Sunday till 9:30 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS HIGHLIGHTS -->
+    <section class="reviews-section" id="reviews" aria-label="Customer Reviews">
+        <div class="section-header-title">
+            <i class="fas fa-star" style="color: var(--yellow);"></i> Rated 4.2 / 5 (94 Google Reviews)
+        </div>
+        <div class="review-cards">
+            <article class="review-box">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Great place!! Delicious & affordable food, large indoor playground, larger outdoor play zone. Highly recommended for kids starting 1 year."</p>
+                <p class="review-author">— Christine Debs (Local Guide)</p>
+            </article>
+            <article class="review-box">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Wonderful place, great and helpful staff, safe place, tasty food, very affordable price. Highly recommend for families. They manage birthday events too."</p>
+                <p class="review-author">— Dib Aziz (Local Guide)</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- CATEGORIES NAVIGATION GRID -->
+    <nav class="category-nav-wrapper" id="menu-nav" aria-label="Menu Quick Jump">
+        <div class="section-header-title">
+            <i class="fas fa-utensils" style="color: var(--pink);"></i> Explore Full Menu
+        </div>
+        <div class="nav-grid">
+            <a href="#appetizers" class="nav-item"><i class="fas fa-cookie-bite"></i> Appetizers</a>
+            <a href="#salads" class="nav-item"><i class="fas fa-leaf"></i> Salads</a>
+            <a href="#platters" class="nav-item"><i class="fas fa-concierge-bell"></i> Platters</a>
+            <a href="#pizza" class="nav-item"><i class="fas fa-pizza-slice"></i> Pizza</a>
+            <a href="#kiosk" class="nav-item"><i class="fas fa-store"></i> Kiosk</a>
+            <a href="#hot-drinks" class="nav-item"><i class="fas fa-mug-hot"></i> Hot Drinks</a>
+            <a href="#mou3ajanet" class="nav-item"><i class="fas fa-bread-slice"></i> Mou3ajanet</a>
+            <a href="#iced-coffee" class="nav-item"><i class="fas fa-glass-whiskey"></i> Iced Coffee</a>
+            <a href="#cold-drinks" class="nav-item"><i class="fas fa-cocktail"></i> Cold Drinks</a>
+            <a href="#pasta" class="nav-item"><i class="fas fa-utensils"></i> Pasta</a>
+            <a href="#kids-meal" class="nav-item"><i class="fas fa-hamburger"></i> Kids Meal</a>
+            <a href="#sandwiches" class="nav-item"><i class="fas fa-bread-slice"></i> Sandwiches</a>
+            <a href="#wraps" class="nav-item"><i class="fas fa-scroll"></i> Wraps</a>
+            <a href="#burgers" class="nav-item"><i class="fas fa-hamburger"></i> Burgers</a>
+            <a href="#sandwiches-fries" class="nav-item"><i class="fas fa-dumpster-fire"></i> Sub Sandwiches</a>
+            <a href="#argileh" class="nav-item"><i class="fas fa-smoking"></i> Argileh</a>
+            <a href="#fresh-juice" class="nav-item"><i class="fas fa-glass-cheers"></i> Fresh Juice</a>
+            <a href="#cocktail" class="nav-item"><i class="fas fa-blender"></i> Cocktail</a>
+            <a href="#milkshake" class="nav-item"><i class="fas fa-wine-glass-alt"></i> Milkshake</a>
+            <a href="#cookies" class="nav-item"><i class="fas fa-cookie"></i> Cookies</a>
+            <a href="#muffins" class="nav-item"><i class="fas fa-birthday-cake"></i> Muffins</a>
+        </div>
+    </nav>
+
+    <!-- MENU SECTIONS -->
+    <section class="menu-section active" id="appetizers">
+        <div class="section-header">
+            <h3 class="section-title title-pink"><i class="fas fa-cookie-bite"></i> Appetizers</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">French Fries</span><span class="item-price">4$</span></div></article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Wedges Potatoes</span><span class="item-price">4.6$</span></div>
+                    <div class="item-addition">(Served with Cocktail Sauce)</div>
+                </article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Twister Potatoes</span><span class="item-price">5.6$</span></div>
+                    <div class="item-addition">(Served with Cocktail Sauce)</div>
+                </article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Cheese and Garlic Bread (5 Pcs)</span><span class="item-price">4.6$</span></div>
+                    <div class="item-explanation">(Bread, Creamy Garlic Sauce, Mozzarella Cheese, Oregano)</div>
+                </article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Nuggets (6 Pieces)</span><span class="item-price">4.5$</span></div></article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Chicken Strips (6 Pieces)</span><span class="item-price">6.5$</span></div>
+                    <div class="item-addition">(Served with Cocktail Sauce)</div>
+                </article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Mozzarella Sticks (6 Pieces)</span><span class="item-price">6.5$</span></div>
+                    <div class="item-addition">(Served with Cocktail Sauce)</div>
+                </article>
+                <article class="menu-item" style="grid-column: 1 / -1;">
+                    <div class="item-header"><span class="item-name" style="color: var(--pink); font-size: 17px;">Funtastic Plate</span><span class="item-price">11.5$</span></div>
+                    <div class="item-explanation">(3 Strips, 3 Nuggets, 3 Mozzarella Sticks, 3 Calamari Rings, 3 Cheese and Garlic Bread, + Wedges Potato)</div>
+                    <div class="item-addition">(Served with Cocktail + Honey Mustard + Creamy Garlic Sauce)</div>
+                </article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Calamari Rings (6 Pieces)</span><span class="item-price">7$</span></div>
+                    <div class="item-addition">(Served with Cocktail Sauce)</div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Salads -->
+    <section class="menu-section active" id="salads">
+        <div class="section-header">
+            <h3 class="section-title title-green"><i class="fas fa-leaf"></i> Salads</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Season Salad</span><span class="item-price">6.5$</span></div>
+                    <div class="item-explanation">(Iceberg Lettuce, Cucumber, Cherry Tomatoes, Olives, Corn, Carrots, Oregano, Rocca)</div>
+                    <div class="item-addition">(Served with Lemon Mustard Sauce or Balsamic Sauce)</div>
+                </article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Greek Salad</span><span class="item-price">7.5$</span></div>
+                    <div class="item-explanation">(Iceberg Lettuce, Fetta Cheese, Cherry Tomatoes, Olives, Cucumber, Onion, Mix Bell Pepper, Oregano)</div>
+                    <div class="item-addition">(Served with Balsamic Sauce)</div>
+                </article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Chicken Caesar Salad</span><span class="item-price">8.5$</span></div>
+                    <div class="item-explanation">(Iceberg Lettuce, Chicken Breast, Crouton, Cherry Tomatoes, Olives, Parmesan)</div>
+                    <div class="item-addition">(Served with Caesar Sauce)</div>
+                </article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Crab Salad</span><span class="item-price">8.2$</span></div>
+                    <div class="item-explanation">(Iceberg Lettuce, Rocca, Crab, Cherry Tomatoes, Corn, Avocado, Carrots)</div>
+                    <div class="item-addition">(Served with Lemon Mustard or Cocktail Sauce)</div>
+                </article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Pasta Tuna Salad</span><span class="item-price">10$</span></div>
+                    <div class="item-explanation">(Iceberg Lettuce, Fusilli Pasta, Olives, Cornichon, Corn, Tuna, Cherry Tomatoes, Carrots, Rocca)</div>
+                    <div class="item-addition">(Served with Caesar or Lemon Mustard Sauce)</div>
+                    <div class="item-extra">(Extra Sauce 0.9$)</div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platters -->
+    <section class="menu-section active" id="platters">
+        <div class="section-header">
+            <h3 class="section-title title-blue"><i class="fas fa-concierge-bell"></i> Platters</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Fish Plate</span><span class="item-price">9$</span></div>
+                    <div class="item-explanation">(Fish Filet, French Fries, Season Salad, Pickles)</div>
+                    <div class="item-addition platters-addition">(Served with Tarator Sauce)</div>
+                </article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Taouk Plate</span><span class="item-price">11$</span></div>
+                    <div class="item-explanation">(Taouk, French Fries, Coleslow, Pickles)</div>
+                    <div class="item-addition platters-addition">(Served with Creamy Garlic Sauce)</div>
+                </article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Crispy Chicken Plate</span><span class="item-price">11.5$</span></div>
+                    <div class="item-explanation">(Crispy Chicken, French Fries, Coleslow, Pickles)</div>
+                    <div class="item-addition platters-addition">(Served with Creamy Garlic Sauce)</div>
+                </article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Grilled Chicken Plate</span><span class="item-price">11.5$</span></div>
+                    <div class="item-explanation">(Chicken Breast, French Fries, Coleslow, Pickles)</div>
+                    <div class="item-addition platters-addition">(Served with Creamy Garlic Sauce)</div>
+                </article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Escalope Plate</span><span class="item-price">15.5$</span></div>
+                    <div class="item-explanation">(Fried Chicken Breast, French Fries)</div>
+                    <div class="item-addition platters-addition">(Served with Creamy Mushroom Sauce)</div>
+                </article>
+                <article class="menu-item">
+                    <div class="item-header"><span class="item-name">Cordon Bleu Plate</span><span class="item-price">15.5$</span></div>
+                    <div class="item-explanation">(Chicken Roll with Turkey and Cheese, French Fries)</div>
+                    <div class="item-addition platters-addition">(Served with Creamy Mushroom Sauce)</div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pizza -->
+    <section class="menu-section active" id="pizza">
+        <div class="section-header">
+            <h3 class="section-title title-orange"><i class="fas fa-pizza-slice"></i> Pizza</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Marguerita Pizza</span><span class="item-price">8$</span></div><div class="item-explanation">(Special Sauce, Mozzarella Cheese, Oregano)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Vegetarian Pizza</span><span class="item-price">9.5$</span></div><div class="item-explanation">(Special Sauce, Onion, Mix Bell Pepper, Corn, Olives, Mozzarella, Mushroom, Tomatoes)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Lebanese Pizza</span><span class="item-price">11$</span></div><div class="item-explanation">(Special Sauce, Fresh Mushroom, Mix Bell Pepper, Olives, Ham, Mozzarella Cheese)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Chicken Pizza</span><span class="item-price">11.5$</span></div><div class="item-explanation">(Special Sauce, Chicken, Onion, Fresh Mushroom, Corn, Mozzarella Cheese)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Pepperoni Pizza</span><span class="item-price">9.5$</span></div><div class="item-explanation">(Special Sauce, Mozzarella Cheese, Beef Pepperoni, Fresh Mushroom)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Steak Pizza</span><span class="item-price">12$</span></div><div class="item-explanation">(Special Sauce, Beef Fillet, Mix Bell Pepper, Fresh Mushroom, Mozzarella Cheese)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Trio Cheese Pizza</span><span class="item-price">9.5$</span></div><div class="item-explanation">(Special Sauce, Mozzarella, Emmental, Cheddar Cheese)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Barbecue Chicken Pizza</span><span class="item-price">11.5$</span></div><div class="item-explanation">(BBQ Sauce, Bell Pepper, Corn, Mushroom, Chicken, Mozzarella, BBQ Mayo)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Sejouk Pizza</span><span class="item-price">9.5$</span></div><div class="item-explanation">(Special Sauce, Mozzarella Cheese, Sejouk)</div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kiosk -->
+    <section class="menu-section active" id="kiosk">
+        <div class="section-header">
+            <h3 class="section-title title-purple"><i class="fas fa-store"></i> Kiosk</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Chupa Chups</span><span class="item-price">0.4$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Sahen Mkasarat</span><span class="item-price">2.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Sahen Jazar</span><span class="item-price">1.6$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Popcorn</span><span class="item-price">2$</span></div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hot Drinks -->
+    <section class="menu-section active" id="hot-drinks">
+        <div class="section-header">
+            <h3 class="section-title title-yellow"><i class="fas fa-mug-hot"></i> Hot Drinks</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Espresso</span><span class="item-price">1.8$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Double Espresso</span><span class="item-price">2.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Cappuccino</span><span class="item-price">2.8$</span></div><div class="item-explanation">(Espresso, Milk, Foamed Milk, Cinnamon)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Hot Chocolate</span><span class="item-price">3.3$</span></div><div class="item-explanation">(Sweet Chocolate Powder, Milk)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Mochaccino</span><span class="item-price">3$</span></div><div class="item-explanation">(Espresso, Milk, Foamed Milk, Dark Chocolate)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Caramel Macchiato</span><span class="item-price">3.2$</span></div><div class="item-explanation">(Espresso, Milk, Foamed Milk, Caramel Sauce)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Caffe Latte</span><span class="item-price">2.8$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Tea</span><span class="item-price">1.3$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Small Turkish Coffee</span><span class="item-price">2.2$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Big Turkish Coffee</span><span class="item-price">3.2$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Nescafe</span><span class="item-price">2.8$</span></div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mou3ajanet -->
+    <section class="menu-section active" id="mou3ajanet">
+        <div class="section-header">
+            <h3 class="section-title title-pink"><i class="fas fa-bread-slice"></i> Mou3ajanet</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Zaatar</span><span class="item-price">2$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Jebne Harra</span><span class="item-price">3.2$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Jebne Mozzarella</span><span class="item-price">3.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Sahen Khodra</span><span class="item-price">1$</span></div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Iced Coffee -->
+    <section class="menu-section active" id="iced-coffee">
+        <div class="section-header">
+            <h3 class="section-title title-blue"><i class="fas fa-glass-whiskey"></i> Iced Coffee</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Frappuccino</span><span class="item-price">4.6$</span></div><div class="item-explanation">(Espresso, Milk, Original Mocafé Powder, Ice)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Mocha Frappe</span><span class="item-price">4.6$</span></div><div class="item-explanation">(Milk, Dark Chocolate Sauce, Mocafé Powder, Ice)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Caramel Frappuccino</span><span class="item-price">4.6$</span></div><div class="item-explanation">(Milk, Caramel Sauce, Original Mocafé Powder, Ice)</div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cold Drinks -->
+    <section class="menu-section active" id="cold-drinks">
+        <div class="section-header">
+            <h3 class="section-title title-green"><i class="fas fa-cocktail"></i> Cold Drinks</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Mr. Juicy</span><span class="item-price">0.55$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Small Water</span><span class="item-price">0.55$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Tropicana</span><span class="item-price">1.1$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Soft Drinks</span><span class="item-price">1.1$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Ice Tea</span><span class="item-price">1.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Beer</span><span class="item-price">3$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Mexican Beer</span><span class="item-price">3.4$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Perrier</span><span class="item-price">2$</span></div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pasta -->
+    <section class="menu-section active" id="pasta">
+        <div class="section-header">
+            <h3 class="section-title title-purple"><i class="fas fa-utensils"></i> Pasta</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Penne Arabiata</span><span class="item-price">8$</span></div><div class="item-explanation">(Penne Pasta, Special Red Sauce, Parmesan cheese)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Chicken Pesto</span><span class="item-price">12.5$</span></div><div class="item-explanation">(Tagliatelle, Chicken Breast, Pesto, Creme Fraiche, Parmesan)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Fettuccine Alfredo</span><span class="item-price">12$</span></div><div class="item-explanation">(Tagliatelle, Chicken, Creme Fraiche, Parmesan, Mushroom)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Mix Cheese Pasta</span><span class="item-price">10$</span></div><div class="item-explanation">(Penne Pasta, Mix Cheese)</div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kids Meal -->
+    <section class="menu-section active" id="kids-meal">
+        <div class="section-header">
+            <h3 class="section-title title-purple"><i class="fas fa-child"></i> Kids Meals</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="kids-meal-card">
+                    <img src="image_e51fda.jpg" alt="Tom and Jerry Meal" class="kids-meal-img" loading="lazy" onerror="this.src='https://via.placeholder.com/85?text=Tom+Jerry'">
+                    <div>
+                        <div class="item-header"><span class="item-name meal-red">Tom & Jerry Meal</span><span class="item-price">5.5$</span></div>
+                        <div class="item-explanation">(2 Mini Burgers, French Fries, Juice)</div>
+                    </div>
+                </article>
+
+                <article class="kids-meal-card">
+                    <img src="image_e51c56.jpg" alt="Minions Meal" class="kids-meal-img" loading="lazy" onerror="this.src='https://via.placeholder.com/85?text=Minions'">
+                    <div>
+                        <div class="item-header"><span class="item-name meal-yellow">Minions Meal</span><span class="item-price">5.5$</span></div>
+                        <div class="item-explanation">(Mini Marguerita Pizza, French Fries, Juice)</div>
+                    </div>
+                </article>
+
+                <article class="kids-meal-card">
+                    <img src="image_e51bdb.jpg" alt="PAW Patrol Meal" class="kids-meal-img" loading="lazy" onerror="this.src='https://via.placeholder.com/85?text=Paw+Patrol'">
+                    <div>
+                        <div class="item-header"><span class="item-name meal-blue">Paw Patrol Meal</span><span class="item-price">5.5$</span></div>
+                        <div class="item-explanation">(5 Nuggets or Chicken Strips, French Fries, Juice)</div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sandwiches -->
+    <section class="menu-section active" id="sandwiches">
+        <div class="section-header">
+            <h3 class="section-title title-purple"><i class="fas fa-bread-slice"></i> Sandwiches</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">French Fries Sandwich</span><span class="item-price">3.2$</span></div><div class="item-explanation">(Mjarrah Bread, Fries, Coleslaw, Garlic Sauce, Pickles, Ketchup)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Tuna Sandwich</span><span class="item-price">6$</span></div><div class="item-explanation">(Mjarrah Bread, Tuna, Lettuce, Corn, Cornichon, Mayo, Lemon Mustard)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Crab Sandwich</span><span class="item-price">5$</span></div><div class="item-explanation">(Mjarrah Bread, Crab, Lettuce, Corn, Lemon Mustard, Cocktail Sauce)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Turkey & Cheese Sandwich</span><span class="item-price">5.3$</span></div><div class="item-explanation">(Mjarrah Bread, Turkey, Mozzarella, Mayo, Lettuce, Pickles, Corn)</div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wraps Served with French Fries -->
+    <section class="menu-section active" id="wraps">
+        <div class="section-header">
+            <h3 class="section-title title-purple"><i class="fas fa-scroll"></i> Wraps (Served with Fries)</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Tortilla Beef Wrap</span><span class="item-price">10$</span></div><div class="item-explanation">(Tortilla, Grilled Beef Fillet, Lettuce, Corn, Buffalo Sauce, Emmental, Mushroom)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Funtastic Chicken Wrap</span><span class="item-price">7.6$</span></div><div class="item-explanation">(Dough, Chicken Breast, Lettuce, Mayo, Corn, Pickles, Mozzarella)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Chicken Caesar Wrap</span><span class="item-price">8$</span></div><div class="item-explanation">(Dough, Chicken, Lettuce, Cherry Tomatoes, Olives, Parmesan, Caesar Sauce)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Taouk Wrap</span><span class="item-price">7$</span></div><div class="item-explanation">(Dough, Garlic Sauce, Taouk, Fries, Coleslaw, Pickles)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Pesto Chicken Wrap</span><span class="item-price">8.5$</span></div><div class="item-explanation">(Tortilla, Chicken Breast, Pesto Mayo, Rocca, Tomatoes, Mozzarella)</div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Burgers Served with French Fries -->
+    <section class="menu-section active" id="burgers">
+        <div class="section-header">
+            <h3 class="section-title title-purple"><i class="fas fa-hamburger"></i> Burgers (Served with Fries)</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Regular Beef Burger</span><span class="item-price">8.5$</span></div><div class="item-explanation">(Patty, Tomatoes, Pickles, Coleslaw, Mayo, Ketchup, Mustard, Fries)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Barbecue Beef Burger</span><span class="item-price">9.5$</span></div><div class="item-explanation">(Patty, BBQ Sauce, Tomatoes, Lettuce, Cheddar, Mix Bell Pepper)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Mozzarella Burger</span><span class="item-price">7.5$</span></div><div class="item-explanation">(Mozzarella Burger, Honey Mustard, Mayo, Pickles, Tomatoes, Lettuce)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Chicken Breast Burger</span><span class="item-price">7.5$</span></div><div class="item-explanation">(Grilled Chicken, Garlic Sauce, Lettuce, Pickles, Fries)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Fish Burger</span><span class="item-price">7.5$</span></div><div class="item-explanation">(Fish Filet, Cocktail Sauce, Lettuce, Pickles)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Ground Chicken Burger</span><span class="item-price">8.2$</span></div><div class="item-explanation">(Ground Chicken, Mayo, Lettuce, Pickles, Fries, Turkey, Mozzarella)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Swiss Mushroom Burger</span><span class="item-price">11$</span></div><div class="item-explanation">(Patty, Onion, Mushroom, Special Sauce, Emmental, Mayo, Rocca)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Chilly Hot Burger</span><span class="item-price">9.5$</span></div><div class="item-explanation">(Patty, Onion, Jalapenos, Cheddar, Mayo, Lettuce)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Buffalo Burger</span><span class="item-price">8$</span></div><div class="item-explanation">(Crispy Chicken, Buffalo Sauce, Cheddar, Lettuce, Pickles)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Bacon Beef Burger</span><span class="item-price">10.5$</span></div><div class="item-explanation">(Patty, Cocktail Sauce, Lettuce, Onion Rings, Beef Bacon)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Double Burger</span><span class="item-price">11$</span></div><div class="item-explanation">(Patty + Chicken, Mayo, Ketchup, Mustard, Garlic, Veggies, Cheddar)</div><div class="item-extra">(Add Cheese 0.8$)</div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sandwiches Served with French Fries -->
+    <section class="menu-section active" id="sandwiches-fries">
+        <div class="section-header">
+            <h3 class="section-title title-purple"><i class="fas fa-dumpster-fire"></i> Sub Sandwiches (Served with Fries)</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Pepper Chicken</span><span class="item-price">8.5$</span></div><div class="item-explanation">(Mjarrah Bread, Chicken, Bell Pepper, Corn, Mayo, Emmental, Demi-glace)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Fajita Sandwich</span><span class="item-price">8.6$</span></div><div class="item-explanation">(Fajita Bread, Chicken, Peppers, Mushroom, Mozzarella, Mayo, Avocado)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Steak Sandwich</span><span class="item-price">9.6$</span></div><div class="item-explanation">(Mjarrah Bread, Beef Fillet, Peppers, Emmental, Special Sauce, Mushroom)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Philadelphia</span><span class="item-price">9$</span></div><div class="item-explanation">(Fajita Bread, Beef Fillet, Mayo Mustard, Ketchup, Emmental & Cheddar)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Sejouk</span><span class="item-price">7$</span></div><div class="item-explanation">(Mjarrah Bread, Mayo, Pickles, Lemon Juice, Sejouk, Tomatoes)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Makanek</span><span class="item-price">7$</span></div><div class="item-explanation">(Mjarrah Bread, Lettuce, Mayo, Pickles, Lemon Juice, Makanek, Tomatoes)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Chicken Submarine</span><span class="item-price">7.5$</span></div><div class="item-explanation">(Fajita Bread, Chicken, Peppers, Mayo, Corn, Mozzarella, Soya)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Beef Shawarma</span><span class="item-price">8$</span></div><div class="item-explanation">(Arabic Bread, Beef Shawarma, Tarator, Pickles, Parsley, Sumac)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Chicken Shawarma</span><span class="item-price">6.5$</span></div><div class="item-explanation">(Arabic Bread, Chicken Shawarma, Garlic Sauce, Pickles)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Mexican Chicken</span><span class="item-price">7.6$</span></div><div class="item-explanation">(Mjarrah Bread, Chicken, Cherry Tomatoes, Jalapeno, Olives, Mozzarella)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Swiss Mushroom Chicken</span><span class="item-price">7.6$</span></div><div class="item-explanation">(Mjarrah Bread, Chicken, Mushroom, Soya Sauce, Mayo, Emmental)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Taouk Sandwich</span><span class="item-price">7$</span></div><div class="item-explanation">(Mjarrah Bread, Garlic Sauce, Taouk, Fries, Coleslaw, Pickles)</div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Argileh -->
+    <section class="menu-section active" id="argileh">
+        <div class="section-header">
+            <h3 class="section-title title-orange"><i class="fas fa-smoking"></i> Argileh</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item" style="grid-column: 1 / -1;"><div class="item-header"><span class="item-name">Arguilé Mouassal</span><span class="item-price">5.5$</span></div><div class="item-explanation">(Tefehteyn, Hamoud w Na3na3, 3enab w Na3na3, 3enab, Na3na3, Love, 3elke, 3elke w Na3na3)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Narbij Plastic</span><span class="item-price">1.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Ghyar Rass</span><span class="item-price">3$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Service Arguilé</span><span class="item-price">3$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Arguilé 3ajamé</span><span class="item-price">6$</span></div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fresh Juice -->
+    <section class="menu-section active" id="fresh-juice">
+        <div class="section-header">
+            <h3 class="section-title title-white"><i class="fas fa-glass-cheers"></i> Fresh Juice</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Strawberry</span><span class="item-price">5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Mango</span><span class="item-price">5.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Orange</span><span class="item-price">4.4$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Lemonade</span><span class="item-price">3.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Ananas</span><span class="item-price">8.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Apple</span><span class="item-price">6$</span></div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cocktail -->
+    <section class="menu-section active" id="cocktail">
+        <div class="section-header">
+            <h3 class="section-title title-white"><i class="fas fa-blender"></i> Cocktail</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Avocado</span><span class="item-price">8.5$</span></div><div class="item-explanation">(Served with Fresh Cream + Honey + Almond)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Fruits Cocktail</span><span class="item-price">7.5$</span></div><div class="item-explanation">(Served with Fresh Cream + Honey + Almond)</div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milkshake -->
+    <section class="menu-section active" id="milkshake">
+        <div class="section-header">
+            <h3 class="section-title title-white"><i class="fas fa-wine-glass-alt"></i> Milkshake</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Strawberry</span><span class="item-price">5.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Banana</span><span class="item-price">5.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Strawberry + Banana</span><span class="item-price">5.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Chocolate</span><span class="item-price">5.5$</span></div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cookies -->
+    <section class="menu-section active" id="cookies">
+        <div class="section-header">
+            <h3 class="section-title title-white"><i class="fas fa-cookie"></i> Cookies</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Vanilla</span><span class="item-price">5.2$</span></div><div class="item-explanation">(Lotus / Nutella / Oreo with Hershey)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Chocolate</span><span class="item-price">5.2$</span></div><div class="item-explanation">(Lotus / Nutella / Oreo with Hershey)</div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Muffins -->
+    <section class="menu-section active" id="muffins">
+        <div class="section-header">
+            <h3 class="section-title title-white"><i class="fas fa-birthday-cake"></i> Muffins & Desserts</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+        </div>
+        <div class="section-content">
+            <div class="menu-grid">
+                <article class="menu-item"><div class="item-header"><span class="item-name">Vanilla Muffin</span><span class="item-price">5.5$</span></div><div class="item-explanation">(Lotus / Nutella / Oreo with Hershey)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Chocolate Muffin</span><span class="item-price">5.5$</span></div><div class="item-explanation">(Lotus / Nutella / Oreo with Hershey)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Fondant Au Chocolat</span><span class="item-price">7.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Crepe (Butter + Sugar)</span><span class="item-price">4.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">Crepe (Nutella Chocolate)</span><span class="item-price">6$</span></div></article>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<a href="#top" class="back-to-top" title="Go to top" aria-label="Scroll back to top"><i class="fas fa-chevron-up"></i></a>
+
+<div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img class="lightbox-content" id="lightboxImg" alt="Enlarged Meal View">
+</div>
+
+<footer>
+    <p>&copy; FUNTASTIC Kids Playground & Family Cafe — Ksara. All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sectionHeaders = document.querySelectorAll('.section-header');
+        sectionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const section = header.parentElement;
+                section.classList.toggle('active');
+            });
+        });
+
+        const categoryLinks = document.querySelectorAll('.nav-grid a[href^="#"]');
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection && targetSection.classList.contains('menu-section')) {
+                    targetSection.classList.add('active');
+                }
+            });
+        });
+
+        const lightbox = document.getElementById('lightboxModal');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const kidsImages = document.querySelectorAll('.kids-meal-img');
+
+        kidsImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.classList.add('show');
+                lightbox.setAttribute('aria-hidden', 'false');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('show');
+            lightbox.setAttribute('aria-hidden', 'true');
+        };
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+    });
+</script>
+
+</body>
+</html>
