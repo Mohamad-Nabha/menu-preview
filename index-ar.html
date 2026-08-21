@@ -522,50 +522,7 @@
             .section-header { padding: 16px 20px; }
             .section-content { padding: 0 20px 20px 20px; }
         }
-        /* 1. Prevent any element from overflowing the screen horizontally */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden; /* Disables horizontal scrolling */
-  margin: 0;
-  padding: 0;
-}
-
-/* 2. Ensure images and containers automatically shrink to fit screen width */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* 3. Mobile-Only Adjustments (Only applies to screens 768px wide or smaller) */
-@media screen and (max-width: 768px) {
-  /* Scale down the logo specifically for mobile screens */
-  .logo, #logo, img[src*="logo"] { 
-    max-width: 80%; /* Adjust percentage as needed */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-
-  /* Optional: Adjust main container padding for tight mobile displays */
-  .container, main, body {
-    padding-left: 10px;
-    padding-right: 10px;
-    box-sizing: border-box;
-  }
-}
     </style>
-    <script>
-  document.addEventListener('contextmenu', event => event.preventDefault());
-  document.onkeydown = function(e) {
-    if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0)))) {
-      return false;
-    }
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-      return false;
-    }
-  }
-</script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -743,27 +700,31 @@ img {
             <div class="menu-grid">
                 <article class="menu-item">
                     <div class="item-header"><span class="item-name">سلطة الخضار الموسمية</span><span class="item-price">6.5$</span></div>
-                    <div class="item-explanation">(خس كابوتشا، خيار، طماطم كرزية، زيتون، ذرة، جزر، أوريغانو، روكا)</div>
+                    <div class="item-explanation">(خس، خيار، طماطم كرزية، زيتون، ذرة، جزر، أوريغانو، روكا)</div>
                     <div class="item-addition">(تُقدّم مع صلصة الليمون والخردل أو البلسمك)</div>
+                    <div class="item-extra">(صلصة إضافية 0.9$)</div>
                 </article>
                 <article class="menu-item">
                     <div class="item-header"><span class="item-name">سلطة يونانية</span><span class="item-price">7.5$</span></div>
                     <div class="item-explanation">(خس، جبنة فيتا، طماطم كرزية، زيتون، خيار، بصل، فلفل رومي مشكل، أوريغانو)</div>
                     <div class="item-addition">(تُقدّم مع صلصة البلسمك)</div>
+                    <div class="item-extra">(صلصة إضافية 0.9$)</div>
                 </article>
                 <article class="menu-item">
                     <div class="item-header"><span class="item-name">سلطة سيزر بالدجاج</span><span class="item-price">8.5$</span></div>
                     <div class="item-explanation">(خس، صدر دجاج، خبز محمص، طماطم كرزية، زيتون، جبنة بارميزان)</div>
                     <div class="item-addition">(تُقدّم مع صلصة السيزر)</div>
+                    <div class="item-extra">(صلصة إضافية 0.9$)</div>
                 </article>
                 <article class="menu-item">
-                    <div class="item-header"><span class="item-name">سلطة الكابوريا (كاب)</span><span class="item-price">8.2$</span></div>
+                    <div class="item-header"><span class="item-name">سلطة السلطعون</span><span class="item-price">8.2$</span></div>
                     <div class="item-explanation">(خس، روكا، سلطعون، طماطم كرزية، ذرة، أفوكادو، جزر)</div>
                     <div class="item-addition">(تُقدّم مع صلصة الليمون والخردل أو الكوكتيل)</div>
+                    <div class="item-extra">(صلصة إضافية 0.9$)</div>
                 </article>
                 <article class="menu-item">
                     <div class="item-header"><span class="item-name">سلطة باستا بالتونا</span><span class="item-price">10$</span></div>
-                    <div class="item-explanation">(خس، باستا فيوزيلي، زيتون، مخلل خيار، ذرة، تونا، طماطم كرزية، جزر، روكا)</div>
+                    <div class="item-explanation">(خس، معكرونة فوسيلي، زيتون، مخلل خيار، ذرة، تونا، طماطم كرزية، جزر، روكا)</div>
                     <div class="item-addition">(تُقدّم مع صلصة السيزر أو الليمون والخردل)</div>
                     <div class="item-extra">(صلصة إضافية 0.9$)</div>
                 </article>
@@ -781,7 +742,7 @@ img {
             <div class="menu-grid">
                 <article class="menu-item">
                     <div class="item-header"><span class="item-name">وجبة سمك فيليه</span><span class="item-price">9$</span></div>
-                    <div class="item-explanation">(فيليه سمك، بطاطا مقلية، سلطة موسمية، مخلل)</div>
+                    <div class="item-explanation">(سمك فيليه، بطاطا مقلية، سلطة موسمية، مخلل)</div>
                     <div class="item-addition platters-addition">(تُقدّم مع صلصة الطحينة)</div>
                 </article>
                 <article class="menu-item">
@@ -825,7 +786,7 @@ img {
                 <article class="menu-item"><div class="item-header"><span class="item-name">بيتزا خضار</span><span class="item-price">9.5$</span></div><div class="item-explanation">(صلصة خاصة، بصل، فلفل مشكل، ذرة، زيتون، موزاريلا، فطر، طماطم)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">بيتزا لبنانية</span><span class="item-price">11$</span></div><div class="item-explanation">(صلصة خاصة، فطر طازج، فلفل مشكل، زيتون، جامبون، جبنة موزاريلا)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">بيتزا دجاج</span><span class="item-price">11.5$</span></div><div class="item-explanation">(صلصة خاصة، دجاج، بصل، فطر طازج، ذرة، جبنة موزاريلا)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">بيتزا ببروني</span><span class="item-price">9.5$</span></div><div class="item-explanation">(صلصة خاصة، جبنة موزاريلا، ببروني بقري، فطر طازج)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">بيتزا بيبروني</span><span class="item-price">9.5$</span></div><div class="item-explanation">(صلصة خاصة، جبنة موزاريلا، بيبروني لحم البقر، فطر طازج)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">بيتزا ستيك</span><span class="item-price">12$</span></div><div class="item-explanation">(صلصة خاصة، فيليه لحم بقري، فلفل مشكل، فطر طازج، موزاريلا)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">بيتزا أجبان ثلاثة</span><span class="item-price">9.5$</span></div><div class="item-explanation">(صلصة خاصة، موزاريلا، إمنتال، جبنة شيدر)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">بيتزا دجاج باربكيو</span><span class="item-price">11.5$</span></div><div class="item-explanation">(صلصة باربكيو، فلفل مشكل، ذرة، فطر، دجاج، موزاريلا، مايو باربكيو)</div></article>
@@ -842,7 +803,7 @@ img {
         </div>
         <div class="section-content">
             <div class="menu-grid">
-                <article class="menu-item"><div class="item-header"><span class="item-name">مصاصة شوبا شوبس</span><span class="item-price">0.4$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name"> شوبا شوبس</span><span class="item-price">0.4$</span></div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">صحن مكسرات</span><span class="item-price">2.5$</span></div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">صحن جزر</span><span class="item-price">1.6$</span></div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">بشار (بوب كورن)</span><span class="item-price">2$</span></div></article>
@@ -859,11 +820,11 @@ img {
         <div class="section-content">
             <div class="menu-grid">
                 <article class="menu-item"><div class="item-header"><span class="item-name">إسبريسو</span><span class="item-price">1.8$</span></div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">دبل إسبريسو</span><span class="item-price">2.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">إسبريسو مزدوج</span><span class="item-price">2.5$</span></div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">كابوتشينو</span><span class="item-price">2.8$</span></div><div class="item-explanation">(إسبريسو، حليب، رغوة حليب، قرفة)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">هوت شوكليت</span><span class="item-price">3.3$</span></div><div class="item-explanation">(بودرة شوكولاتة حلوة، حليب)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">شكولاته ساخنة</span><span class="item-price">3.3$</span></div><div class="item-explanation">(بودرة شوكولاتة حلوة، حليب)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">موكاتشينو</span><span class="item-price">3$</span></div><div class="item-explanation">(إسبريسو، حليب، رغوة حليب، شوكولاتة داكنة)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">كاراميل ماكياتو</span><span class="item-price">3.2$</span></div><div class="item-explanation">(إسبريسو، حليب، رغوة حليب، صوص كاراميل)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">كاراميل ماكياتو</span><span class="item-price">3.2$</span></div><div class="item-explanation">(إسبريسو، حليب، رغوة حليب، صلصة كاراميل)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">كافيه لاتيه</span><span class="item-price">2.8$</span></div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">شاي</span><span class="item-price">1.3$</span></div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">قهوة تركية صغيرة</span><span class="item-price">2.2$</span></div></article>
@@ -934,7 +895,7 @@ img {
             <div class="menu-grid">
                 <article class="menu-item"><div class="item-header"><span class="item-name">بيني أرابياتا</span><span class="item-price">8$</span></div><div class="item-explanation">(معكرونة بيني، صلصة حمراء خاصة، جبنة بارميزان)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">دجاج بيستو</span><span class="item-price">12.5$</span></div><div class="item-explanation">(تلياتيل، صدر دجاج، بيستو، كريمة طازجة، بارميزان)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">فيتوتشيني الفريدو</span><span class="item-price">12$</span></div><div class="item-explanation">(تلياتيل، دجاج، كريمة طازجة، بارميزان، فطر)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">فيتوتشيني ألفريدو</span><span class="item-price">12$</span></div><div class="item-explanation">(تلياتيل، دجاج، كريمة طازجة، بارميزان، فطر)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">باستا مشكل أجبان</span><span class="item-price">10$</span></div><div class="item-explanation">(معكرونة بيني، أجبان مشكلة)</div></article>
             </div>
         </div>
@@ -985,7 +946,7 @@ img {
             <div class="menu-grid">
                 <article class="menu-item"><div class="item-header"><span class="item-name">ساندويش بطاطا</span><span class="item-price">3.2$</span></div><div class="item-explanation">(خبز مجرح، بطاطا، سلطة ملفوف، ثوم، مخلل، كاتشب)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">ساندويش تونا</span><span class="item-price">6$</span></div><div class="item-explanation">(خبز مجرح، تونا، خس، ذرة، مخلل، مايونيز، خردل بالليمون)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">ساندويش كابوريا (كاب)</span><span class="item-price">5$</span></div><div class="item-explanation">(خبز مجرح، سلطعون، خس، ذرة، خردل بالليمون، كوكتيل)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">ساندويش سلطعون</span><span class="item-price">5$</span></div><div class="item-explanation">(خبز مجرح، سلطعون، خس، ذرة، خردل بالليمون، كوكتيل)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">ساندويش حبش وجبنة</span><span class="item-price">5.3$</span></div><div class="item-explanation">(خبز مجرح، حبش، موزاريلا، مايونيز، خس، مخلل، ذرة)</div></article>
             </div>
         </div>
@@ -994,7 +955,7 @@ img {
     <!-- Wraps -->
     <section class="menu-section active" id="wraps">
         <div class="section-header">
-            <h3 class="section-title title-purple"><i class="fas fa-scroll"></i> رول وتورتيلا (تُقدّم مع البطاطا)</h3>
+            <h3 class="section-title title-purple"><i class="fas fa-scroll"></i> رول تورتيلا (تُقدّم مع البطاطا)</h3>
             <i class="fas fa-chevron-down accordion-icon"></i>
         </div>
         <div class="section-content">
@@ -1016,17 +977,17 @@ img {
         </div>
         <div class="section-content">
             <div class="menu-grid">
-                <article class="menu-item"><div class="item-header"><span class="item-name">برغر لحم كلاسيك</span><span class="item-price">8.5$</span></div><div class="item-explanation">(لحم، طماطم، مخلل، سلطة ملفوف، مايونيز، كاتشب، خردل)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">برغر باربكيو لحم</span><span class="item-price">9.5$</span></div><div class="item-explanation">( لحم، صوص باربكيو، طماطم، خس، شيدر، فلفل مشكل)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">برغر موزاريلا</span><span class="item-price">7.5$</span></div><div class="item-explanation">(قرص موزاريلا، خردل بالنوع، مايونيز، مخلل، طماطم، خس)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">برغر صدر دجاج</span><span class="item-price">7.5$</span></div><div class="item-explanation">(دجاج مشوي، ثوم، خس، مخلل، بطاطا)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">برغر سمك</span><span class="item-price">7.5$</span></div><div class="item-explanation">(فيليه سمك، صوص كوكتيل، خس، مخلل)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">برغر دجاج مفروم</span><span class="item-price">8.2$</span></div><div class="item-explanation">(دجاج مفروم، مايونيز، خس، مخلل، بطاطا، حبش، موزاريلا)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">برغر سويس بالفطر</span><span class="item-price">11$</span></div><div class="item-explanation">(لحم، بصل، فطر، صوص خاص، جبنة إمنتال، مايونيز، روكا)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">تشيلي برغر حار</span><span class="item-price">9.5$</span></div><div class="item-explanation">(لحم، بصل، هالبينو، شيدر، مايونيز، خس)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">بوفالو برغر</span><span class="item-price">8$</span></div><div class="item-explanation">(دجاج كريسبي، صوص بوفالو، شيدر، خس، مخلل)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">بيكون برغر لحم</span><span class="item-price">10.5$</span></div><div class="item-explanation">( لحم، كوكتيل، خس، حلقات بصل، بيكون بقري)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">دبل برغر</span><span class="item-price">11$</span></div><div class="item-explanation">(لحم + دجاج، مايونيز، كاتشب، خردل، ثوم، خضار، شيدر)</div><div class="item-extra">(إضافة جبنة 0.8$)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">برغر لحم كلاسيك</span><span class="item-price">8.5$</span></div><div class="item-explanation">(لحم، طماطم، مخلل، سلطة ملفوف، مايونيز، كاتشب، خردل)</div><div class="item-extra">(إضافة جبنة 0.8$)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">برغر باربكيو لحم</span><span class="item-price">9.5$</span></div><div class="item-explanation">( لحم، صلصة باربكيو، طماطم، خس، شيدر، فلفل مشكل)</div><div class="item-extra">(إضافة جبنة 0.8$)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">برغر موزاريلا</span><span class="item-price">7.5$</span></div><div class="item-explanation">(قرص موزاريلا، صلصة الخردل بالعسل، مايونيز، مخلل، طماطم، خس)</div><div class="item-extra">(إضافة جبنة 0.8$)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">برغر صدر دجاج</span><span class="item-price">7.5$</span></div><div class="item-explanation">(دجاج مشوي، ثوم، خس، مخلل، بطاطا)</div><div class="item-extra">(إضافة جبنة 0.8$)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">برغر سمك</span><span class="item-price">7.5$</span></div><div class="item-explanation">(فيليه سمك، صلصة كوكتيل، خس، مخلل)</div><div class="item-extra">(إضافة جبنة 0.8$)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">برغر دجاج مفروم</span><span class="item-price">8.2$</span></div><div class="item-explanation">(دجاج مفروم، مايونيز، خس، مخلل، بطاطا، حبش، موزاريلا)</div><div class="item-extra">(إضافة جبنة 0.8$)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">برغر سويس بالفطر</span><span class="item-price">11$</span></div><div class="item-explanation">(لحم، بصل، فطر، صلصة خاصة، جبنة إمنتال، مايونيز، روكا)</div><div class="item-extra">(إضافة جبنة 0.8$)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">تشيلي برغر حار</span><span class="item-price">9.5$</span></div><div class="item-explanation">(لحم، بصل، هالبينو، شيدر، مايونيز، خس)</div><div class="item-extra">(إضافة جبنة 0.8$)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">بوفالو برغر</span><span class="item-price">8$</span></div><div class="item-explanation">(دجاج كريسبي، صلصة بوفالو، شيدر، خس، مخلل)</div><div class="item-extra">(إضافة جبنة 0.8$)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">بيكون برغر لحم</span><span class="item-price">10.5$</span></div><div class="item-explanation">( لحم، كوكتيل، خس، حلقات بصل، بيكون بقري)</div><div class="item-extra">(إضافة جبنة 0.8$)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name"> برغر مزدوجة</span><span class="item-price">11$</span></div><div class="item-explanation">(لحم + دجاج، مايونيز، كاتشب، خردل، ثوم، خضار، شيدر)</div><div class="item-extra">(إضافة جبنة 0.8$)</div></article>
             </div>
         </div>
     </section>
@@ -1034,22 +995,22 @@ img {
     <!-- Sub Sandwiches -->
     <section class="menu-section active" id="sandwiches-fries">
         <div class="section-header">
-            <h3 class="section-title title-purple"><i class="fas fa-dumpster-fire"></i> ساندويشات ساب (تُقدّم مع البطاطا)</h3>
+            <h3 class="section-title title-purple"><i class="fas fa-dumpster-fire"></i> ساندويشات (تُقدّم مع البطاطا)</h3>
             <i class="fas fa-chevron-down accordion-icon"></i>
         </div>
         <div class="section-content">
             <div class="menu-grid">
-                <article class="menu-item"><div class="item-header"><span class="item-name">بيبر دجاج</span><span class="item-price">8.5$</span></div><div class="item-explanation">(خبز مجرح، دجاج، فلفل رومي، ذرة، مايونيز، إمنتال، ديمي جلاس)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">دجاج بالفلفل</span><span class="item-price">8.5$</span></div><div class="item-explanation">(خبز مجرح، دجاج، فلفل رومي، ذرة، مايونيز، إمنتال،صلصة الديمي جلاس)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">ساندويش فاهيتا</span><span class="item-price">8.6$</span></div><div class="item-explanation">(خبز فاهيتا، دجاج، فلفل، فطر، موزاريلا، مايونيز، أفوكادو)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">ساندويش ستيك</span><span class="item-price">9.6$</span></div><div class="item-explanation">(خبز مجرح، فيليه لحم، فلفل، إمنتال، صوص خاص، فطر)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">ساندويش ستيك</span><span class="item-price">9.6$</span></div><div class="item-explanation">(خبز مجرح، فيليه لحم، فلفل، إمنتال، صلصة خاصة، فطر)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">فيلادلفيا</span><span class="item-price">9$</span></div><div class="item-explanation">(خبز فاهيتا، فيليه لحم، مايونيز وخردل، كاتشب، إمنتال وشيدر)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">سجق</span><span class="item-price">7$</span></div><div class="item-explanation">(خبز مجرح، مايونيز، مخلل، حامض، سجق، طماطم)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">مقانق</span><span class="item-price">7$</span></div><div class="item-explanation">(خبز مجرح، خس، مايونيز، مخلل، حامض، مقانق، طماطم)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">دجاج صبمارين</span><span class="item-price">7.5$</span></div><div class="item-explanation">(خبز فاهيتا، دجاج، فلفل، مايونيز، ذرة، موزاريلا، صويا)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">دجاج سبمارين</span><span class="item-price">7.5$</span></div><div class="item-explanation">(خبز فاهيتا، دجاج، فلفل، مايونيز، ذرة، موزاريلا، صويا)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">شاورما لحم</span><span class="item-price">8$</span></div><div class="item-explanation">(خبز عربي، شاورما لحم، طحينة، مخلل، بقدونس، سماق)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">شاورما دجاج</span><span class="item-price">6.5$</span></div><div class="item-explanation">(خبز عربي، شاورما دجاج، ثوم، مخلل)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">شاورما دجاج</span><span class="item-price">6.5$</span></div><div class="item-explanation">(خبز عربي، شاورما دجاج مشوية، صلصة الثوم الكريمية، مخللات)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">دجاج مكسيكي</span><span class="item-price">7.6$</span></div><div class="item-explanation">(خبز مجرح، دجاج، طماطم كرزية، هالبينو، زيتون، موزاريلا)</div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">دجاج سويس بالفطر</span><span class="item-price">7.6$</span></div><div class="item-explanation">(خبز مجرح، دجاج، فطر، صوص صويا، مايونيز، إمنتال)</div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">دجاج سويس بالفطر</span><span class="item-price">7.6$</span></div><div class="item-explanation">(خبز مجرح، دجاج، فطر، صلصة صويا، مايونيز، إمنتال)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">ساندويش طاووق</span><span class="item-price">7$</span></div><div class="item-explanation">(خبز مجرح، ثوم، طاووق، بطاطا، سلطة ملفوف، مخلل)</div></article>
             </div>
         </div>
@@ -1063,11 +1024,11 @@ img {
         </div>
         <div class="section-content">
             <div class="menu-grid">
-                <article class="menu-item" style="grid-column: 1 / -1;"><div class="item-header"><span class="item-name">أرجيلة معسل</span><span class="item-price">5.5$</span></div><div class="item-explanation">(تفاحتين، حامض ونعناع، عنب ونعناع، عنب، نعناع، لوف 66، علكة، علكة ونعناع)</div></article>
+                <article class="menu-item" style="grid-column: 1 / -1;"><div class="item-header"><span class="item-name">أرجيلة معسل</span><span class="item-price">5.5$</span></div><div class="item-explanation">(تفاحتين، حامض ونعناع، عنب ونعناع، عنب، نعناع، لوف، علكة، علكة ونعناع)</div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">نربيج بلاستيك</span><span class="item-price">1.5$</span></div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">غيار رأس</span><span class="item-price">3$</span></div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">سيرفيس أرجيلة</span><span class="item-price">3$</span></div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">أرجيلة عجيمي</span><span class="item-price">6$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">أرجيلة عجمي</span><span class="item-price">6$</span></div></article>
             </div>
         </div>
     </section>
@@ -1080,7 +1041,7 @@ img {
         </div>
         <div class="section-content">
             <div class="menu-grid">
-                <article class="menu-item"><div class="item-header"><span class="item-name">فريز (فراولة)</span><span class="item-price">5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name"> فراولة</span><span class="item-price">5$</span></div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">مانغو</span><span class="item-price">5.5$</span></div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">برتقال</span><span class="item-price">4.4$</span></div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">ليموناضة</span><span class="item-price">3.5$</span></div></article>
@@ -1107,14 +1068,14 @@ img {
     <!-- Milkshake -->
     <section class="menu-section active" id="milkshake">
         <div class="section-header">
-            <h3 class="section-title title-white"><i class="fas fa-wine-glass-alt"></i> ميلك شيك</h3>
+            <h3 class="section-title title-white"><i class="fas fa-wine-glass-alt"></i> مخفوقات الحليب</h3>
             <i class="fas fa-chevron-down accordion-icon"></i>
         </div>
         <div class="section-content">
             <div class="menu-grid">
-                <article class="menu-item"><div class="item-header"><span class="item-name">فريز (فراولة)</span><span class="item-price">5.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">فراولة</span><span class="item-price">5.5$</span></div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">موز</span><span class="item-price">5.5$</span></div></article>
-                <article class="menu-item"><div class="item-header"><span class="item-name">فريز + موز</span><span class="item-price">5.5$</span></div></article>
+                <article class="menu-item"><div class="item-header"><span class="item-name">فراولة + موز</span><span class="item-price">5.5$</span></div></article>
                 <article class="menu-item"><div class="item-header"><span class="item-name">شوكولاتة</span><span class="item-price">5.5$</span></div></article>
             </div>
         </div>
