@@ -521,6 +521,37 @@
             .section-header { padding: 16px 20px; }
             .section-content { padding: 0 20px 20px 20px; }
         }
+        /* 1. Prevent any element from overflowing the screen horizontally */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden; /* Disables horizontal scrolling */
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Ensure images and containers automatically shrink to fit screen width */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 3. Mobile-Only Adjustments (Only applies to screens 768px wide or smaller) */
+@media screen and (max-width: 768px) {
+  /* Scale down the logo specifically for mobile screens */
+  .logo, #logo, img[src*="logo"] { 
+    max-width: 80%; /* Adjust percentage as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Optional: Adjust main container padding for tight mobile displays */
+  .container, main, body {
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+  }
+}
     </style>
     <script>
   document.addEventListener('contextmenu', event => event.preventDefault());
